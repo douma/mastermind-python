@@ -27,6 +27,10 @@ class GameEngineTest(unittest.TestCase):
         gameEngine = GameEngine();
         self.assertFalse(gameEngine.endReached(1));
         self.assertTrue(gameEngine.endReached(8));
+    def test_equals(self):
+        gameEngine = GameEngine();
+        self.assertTrue(gameEngine.equals("ABCD", "ABCD"));
+        self.assertFalse(gameEngine.equals("BCDE", "ABCD"));
 
 class GameEngine:
     def getCombination(self):
@@ -47,6 +51,8 @@ class GameEngine:
         return output
     def endReached(self, limit):
         return limit == 8;
+    def equals(self, input, answer):
+        return input == answer;
 
 if __name__ == '__main__':
     unittest.main()
