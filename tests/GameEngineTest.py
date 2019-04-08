@@ -23,6 +23,9 @@ class GameEngineTest(unittest.TestCase):
         self.assertEqual('++++', gameEngine.hint('ABCD', 'ABCD'));
         self.assertEqual('+++ ', gameEngine.hint('ABCF', 'ABCD'));
         self.assertEqual('--- ', gameEngine.hint('BCDE', 'ABCD'));
+    def test_should_give_hint_for_invalid_input(self):
+        gameEngine = GameEngine();
+        self.assertEqual('++', gameEngine.hint('ABCD', 'AB'));
     def test_end_reached(self):
         gameEngine = GameEngine();
         self.assertFalse(gameEngine.endReached(1));

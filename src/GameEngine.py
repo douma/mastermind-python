@@ -8,14 +8,17 @@ class GameEngine:
             combination += random.choice(randomList)
         return combination;
     def hint(self, input, answer):
-        output = "";
-        for x in range(0,4):
-            if input[x] == answer[x]:
-                output += "+";
-            elif input[x] in answer:
-                output += "-";
-            else:
-                output += " ";
+        try:
+            output = "";
+            for x in range(0,4):
+                if input[x] == answer[x]:
+                    output += "+";
+                elif input[x] in answer:
+                    output += "-";
+                else:
+                    output += " ";
+        except:
+            pass;
         return output
     def endReached(self, limit):
         return limit == 8;
